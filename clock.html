@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-color: aquamarine;
+            margin-top: 10px;
+            padding:0px;
+        }
+        div{
+           
+            display: block;
+            background-color: darkslategrey;
+            padding:20px 50px 20px 50px;
+        }
+        .Clock{ 
+            max-width:100%;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            justify-items: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: whitesmoke;
+            border-radius: 25% 0% 25% 0%;
+            margin: 0 5px 0 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="MyClockDiaplay" class= "Clock"></div>
+    <script>
+        function showTime(){
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        var session = "AM";
+        if (h == 0){
+            h = 12;
+        }
+        if(h > 12){
+            h = h - 12;
+            session = "PM";
+        }
+        h = (h < 10)? "0"+h : h;
+        m = (m < 10)? "0"+m : m;
+        s = (s < 10)? "0"+s : s;
+
+        document.getElementById("MyClockDiaplay").innerHTML = h + ":" + m + ":" + s + " " + session;
+
+        setTimeout(showTime, 1000);
+    }
+    showTime();
+        
+     </script>
+
+</body>
+</html>
